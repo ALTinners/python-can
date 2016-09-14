@@ -6,3 +6,6 @@
 python-can_1.5.2.orig.tar.gz
 bcfc8613f31c5b9ffa04c7fe6569c97753901872
 77968
+debianTag="debian/%e%v"
+patchedTag="patched/%e%v"
+upstreamTag="upstream/%e%u"
