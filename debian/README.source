@@ -1,0 +1,15 @@
+packaging guidelines
+====================
+
+the python modules team uses `git-dpm` for managing the repository.
+
+See https://wiki.debian.org/Python/GitPackaging#git_workflows for a short
+introduction and tips...
+
+
+## Updating your quilt patch stack
+
+   $ git-dpm checkout-patched
+   $ git rebase -i upstream
+   <edit>
+   $ git-dpm update-patches
