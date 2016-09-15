@@ -1,0 +1,39 @@
+From 9e8122c3ddd21d1e07266471f687122b88cc9095 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?IOhannes=20m=20zm=C3=B6lnig?=
+ <zmoelnig@umlautQ.umlaeute.mur.at>
+Date: Thu, 15 Sep 2016 11:43:10 +0200
+Subject: Python2 fix for storing BLOB data
+
+Python2's sqlite3 module requires a "buffer" object for storing BLOB data.
+Python3 doesn't have a "buffer" object.
+
+This allows the test-suite to succeed.
+---
+ can/CAN.py | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/can/CAN.py b/can/CAN.py
+index 9f61c33..cb119b1 100644
+--- a/can/CAN.py
++++ b/can/CAN.py
+@@ -206,6 +206,11 @@ class SqliteWriter(Listener):
+             self._create_db()
+ 
+         # add row to db
++        try:
++            # Python 2.x compat
++            data=buffer(msg.data)
++        except NameError:
++            data=msg.data
+         row_data = (
+             msg.timestamp,
+             msg.arbitration_id,
+@@ -213,7 +218,7 @@ class SqliteWriter(Listener):
+             msg.is_remote_frame,
+             msg.is_error_frame,
+             msg.dlc,
+-            msg.data
++            data
+         )
+         c = self.conn.cursor()
+         c.execute(SqliteWriter.insert_msg_template, row_data)
