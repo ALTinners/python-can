@@ -4,8 +4,10 @@ Priority: optional
 Maintainer: IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>
 Uploaders: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
 Build-Depends: debhelper (>= 9), dh-python,
-               python-all,
-               python-setuptools,
+ python-all,
+ python-setuptools,
+ python3-all,
+ python3-setuptools,
 Standards-Version: 3.9.8
 Homepage: https://bitbucket.org/hardbyte/python-can
 Vcs-Git: https://anonscm.debian.org/git/python-modules/packages/python-can.git
@@ -27,5 +29,20 @@ Description: Controller Area Network (CAN) interface module - Python 2.x
  a suite of utilities for sending and receiving messages on a can bus,
  .
  This package provides the bindings for Python 2.x
+
+Package: python3-can
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends},
+Recommends: ${python3:Recommends}
+Suggests: ${python3:Suggests}
+Description: Controller Area Network (CAN) interface module
+ The Controller Area Network (CAN, aka "CAN bus") is a bus standard designed
+ to allow microcontrollers and devices to communicate with each other. It
+ has priority based bus arbitration, reliable deterministic
+ communication. It is used in cars, trucks, boats, wheelchairs and more.
  .
+ The 'can' package provides controller area network support for Python
+ developers; providing "common abstractions to different hardware devices", and
+ a suite of utilities for sending and receiving messages on a can bus,
  .
+ This package provides the bindings for Python 3.x
