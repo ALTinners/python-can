@@ -1,5 +1,10 @@
 #! /usr/bin/make -f
 
-export PYBUILD_NAME=python-can
+export PYBUILD_NAME=can
+export PYBUILD_AFTER_INSTALL_python2=rm -rf {destdir}/usr/bin/
 %:
-	dh $@ --with python2 --buildsystem=pybuild
+	dh $@ --with python2,python3 --buildsystem=pybuild
+
+override_dh_clean:
+	dh_clean
+	rm -f test.asc test.csv
