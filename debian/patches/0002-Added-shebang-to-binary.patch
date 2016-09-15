@@ -1,0 +1,19 @@
+From 9383623916e194876f87804b4b769bb5bcbd8892 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?IOhannes=20m=20zm=C3=B6lnig=20=28Debian/GNU=29?=
+ <umlaeute@debian.org>
+Date: Thu, 15 Sep 2016 12:21:23 +0200
+Subject: Added shebang to binary
+
+---
+ bin/j1939_logger.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/bin/j1939_logger.py b/bin/j1939_logger.py
+index 3fe630d..66bf4f1 100644
+--- a/bin/j1939_logger.py
++++ b/bin/j1939_logger.py
+@@ -1,3 +1,4 @@
++#!/usr/bin/env python
+ from __future__ import print_function
+ 
+ import argparse
