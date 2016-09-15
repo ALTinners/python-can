@@ -6,8 +6,12 @@ Uploaders: Debian Python Modules Team <python-modules-team@lists.alioth.debian.o
 Build-Depends: debhelper (>= 9), dh-python,
  python-all,
  python-setuptools,
+ python-mock,
+ python-nose,
  python3-all,
  python3-setuptools,
+ python3-mock,
+ python3-nose,
 Standards-Version: 3.9.8
 Homepage: https://bitbucket.org/hardbyte/python-can
 Vcs-Git: https://anonscm.debian.org/git/python-modules/packages/python-can.git
