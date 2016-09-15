@@ -206,6 +206,11 @@ class SqliteWriter(Listener):
             self._create_db()
 
         # add row to db
+        try:
+            # Python 2.x compat
+            data=buffer(msg.data)
+        except NameError:
+            data=msg.data
         row_data = (
             msg.timestamp,
             msg.arbitration_id,
@@ -213,7 +218,7 @@ class SqliteWriter(Listener):
             msg.is_remote_frame,
             msg.is_error_frame,
             msg.dlc,
-            msg.data
+            data
         )
         c = self.conn.cursor()
         c.execute(SqliteWriter.insert_msg_template, row_data)
