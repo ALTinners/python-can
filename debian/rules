@@ -8,3 +8,7 @@ export PYBUILD_AFTER_INSTALL_python2=rm -rf {destdir}/usr/bin/
 override_dh_clean:
 	dh_clean
 	rm -f test.asc test.csv
+
+override_dh_auto_install:
+	dh_auto_install
+	for f in debian/*/usr/bin/*.py; do mv $$f $${f%.py}; done
