@@ -1,6 +1,5 @@
-python-can (1.5.2-1) UNRELEASED; urgency=medium
+python-can (1.5.2-1) unstable; urgency=medium
 
   * Initial release (closes: #837805)
 
- -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Wed, 14 Sep 2016 19:16:03 +0000
-
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Thu, 15 Sep 2016 14:49:36 +0200
