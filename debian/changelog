@@ -1,3 +1,9 @@
+python-can (1.5.2-2) unstable; urgency=medium
+
+  * Dropped test-output from binary packages.
+
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Thu, 22 Sep 2016 23:39:35 +0200
+
 python-can (1.5.2-1) unstable; urgency=medium
 
   * Initial release (closes: #837805)
