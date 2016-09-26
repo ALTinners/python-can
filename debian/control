@@ -36,7 +36,7 @@ Description: Controller Area Network (CAN) interface module - Python 2.x
  .
  The 'can' package provides controller area network support for Python
  developers; providing "common abstractions to different hardware devices", and
- a suite of utilities for sending and receiving messages on a can bus,
+ a suite of utilities for sending and receiving messages on a can bus.
  .
  This package provides the bindings for Python 2.x
 
@@ -58,9 +58,9 @@ Description: Controller Area Network (CAN) interface module
  .
  The 'can' package provides controller area network support for Python
  developers; providing "common abstractions to different hardware devices", and
- a suite of utilities for sending and receiving messages on a can bus,
+ a suite of utilities for sending and receiving messages on a can bus.
  .
- This package provides the bindings for Python 3.x
+ This package provides the bindings for Python 3.x (and some logging utilities)
 
 Package: python-can-doc
 Architecture: all
@@ -76,6 +76,6 @@ Description: Controller Area Network (CAN) interface module - API documentation
  .
  The 'can' package provides controller area network support for Python
  developers; providing "common abstractions to different hardware devices", and
- a suite of utilities for sending and receiving messages on a can bus,
+ a suite of utilities for sending and receiving messages on a can bus.
  .
  This package provides the API documentation.
