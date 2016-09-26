@@ -3,11 +3,17 @@
 export PYBUILD_NAME=can
 export PYBUILD_AFTER_INSTALL_python2=rm -rf {destdir}/usr/bin/
 %:
-	dh $@ --with python2,python3 --buildsystem=pybuild
+	dh $@ --with python3,python2,sphinxdoc --buildsystem=pybuild
 
 override_dh_clean:
 	dh_clean
 	rm -f test.asc test.csv
+
+override_dh_auto_build-indep:
+ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS)))
+	sphinx-build -E -T -b html doc $(CURDIR)/.pybuild/docs/html/
+	#rm -rf $(CURDIR)/.pybuild/docs/html/.doctrees
+endif
 
 override_dh_auto_install:
 	dh_auto_install
