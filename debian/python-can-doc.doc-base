@@ -1,0 +1,10 @@
+Document: python-can-doc
+Title: Python CAN Documentation
+Author: Brian Thorne et al.
+Abstract: Sphinx documentation for python-can
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python-can-doc/html/index.html
+Files: /usr/share/doc/python-can-doc/html/*
+

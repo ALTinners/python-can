@@ -50,3 +50,21 @@ Description: Controller Area Network (CAN) interface module
  a suite of utilities for sending and receiving messages on a can bus,
  .
  This package provides the bindings for Python 3.x
+
+Package: python-can-doc
+Architecture: all
+Section: doc
+Depends:
+ ${misc:Depends},
+ ${sphinxdoc:Depends},
+Description: Controller Area Network (CAN) interface module - API documentation
+ The Controller Area Network (CAN, aka "CAN bus") is a bus standard designed
+ to allow microcontrollers and devices to communicate with each other. It
+ has priority based bus arbitration, reliable deterministic
+ communication. It is used in cars, trucks, boats, wheelchairs and more.
+ .
+ The 'can' package provides controller area network support for Python
+ developers; providing "common abstractions to different hardware devices", and
+ a suite of utilities for sending and receiving messages on a can bus,
+ .
+ This package provides the API documentation.
