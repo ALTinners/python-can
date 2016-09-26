@@ -20,9 +20,14 @@ Vcs-Browser: https://anonscm.debian.org/git/python-modules/packages/python-can.g
 
 Package: python-can
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends},
-Recommends: ${python:Recommends}
-Suggests: ${python:Suggests}
+Depends:
+ ${misc:Depends},
+ ${python:Depends},
+Recommends:
+ ${python:Recommends},
+Suggests:
+ python-can-doc,
+ ${python:Suggests},
 Description: Controller Area Network (CAN) interface module - Python 2.x
  The Controller Area Network (CAN, aka "CAN bus") is a bus standard designed
  to allow microcontrollers and devices to communicate with each other. It
@@ -37,9 +42,14 @@ Description: Controller Area Network (CAN) interface module - Python 2.x
 
 Package: python3-can
 Architecture: all
-Depends: ${misc:Depends}, ${python3:Depends},
-Recommends: ${python3:Recommends}
-Suggests: ${python3:Suggests}
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+Recommends:
+ ${python3:Recommends},
+Suggests:
+ python-can-doc,
+ ${python3:Suggests},
 Description: Controller Area Network (CAN) interface module
  The Controller Area Network (CAN, aka "CAN bus") is a bus standard designed
  to allow microcontrollers and devices to communicate with each other. It
