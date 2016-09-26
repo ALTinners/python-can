@@ -1,3 +1,14 @@
+python-can (1.5.2-3) unstable; urgency=medium
+
+  * Added python-can-doc package
+    * Build documentation with sphinx
+    * Added missing sphinx-config
+    * B-D on sphinx
+  * Multi-line dependencies and suggest -doc package.
+  * Fixed description.
+
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Mon, 26 Sep 2016 17:16:19 +0200
+
 python-can (1.5.2-2) unstable; urgency=medium
 
   * Dropped test-output from binary packages.
