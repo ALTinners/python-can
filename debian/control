@@ -64,6 +64,7 @@ Description: Controller Area Network (CAN) interface module
 
 Package: python-can-doc
 Architecture: all
+Multi-Arch: foreign
 Section: doc
 Depends:
  ${misc:Depends},
