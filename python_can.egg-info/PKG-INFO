@@ -1,27 +1,27 @@
 Metadata-Version: 1.0
 Name: python-can
-Version: 1.5.2
+Version: 2.0.0
 Summary: Controller Area Network interface module for Python
-Home-page: https://bitbucket.org/hardbyte/python-can
+Home-page: https://github.com/hardbyte/python-can
 Author: Brian Thorne
-Author-email: hardbyte@gmail.com
+Author-email: brian@thorne.link
 License: LGPL v3
 Description: python-can
         ==========
         
-        |release| |docs|  |build| 
+        |release| |docs| |build|
         
         .. |release| image:: https://img.shields.io/pypi/v/python-can.svg
            :target: https://pypi.python.org/pypi/python-can/
            :alt: Latest Version
         
-        .. |docs| image:: https://readthedocs.org/projects/python-can/badge/?version=latest
-           :target: http://python-can.readthedocs.org/en/latest/?badge=latest
+        .. |docs| image:: https://readthedocs.org/projects/python-can/badge/?version=stable
+           :target: https://python-can.readthedocs.io/en/stable/
            :alt: Documentation Status
                         
-        .. |build| image:: https://drone.io/bitbucket.org/hardbyte/python-can/status.png
-           :target: https://drone.io/bitbucket.org/hardbyte/python-can/latest
-           :alt: CI Server
+        .. |build| image:: https://travis-ci.org/hardbyte/python-can.svg?branch=develop
+           :target: https://travis-ci.org/hardbyte/python-can
+           :alt: CI Server for develop branch
         
         
         The **C**\ ontroller **A**\ rea **N**\ etwork is a bus standard designed
@@ -44,7 +44,7 @@ Description: python-can
         ----------
         
         If you run into bugs, you can file them in our
-        `issue tracker <https://bitbucket.org/hardbyte/python-can/issues>`__.
+        `issue tracker <https://github.com/hardbyte/python-can/issues>`__.
         
         There is also a `python-can <https://groups.google.com/forum/#!forum/python-can>`__
         mailing list for development discussion.
@@ -54,4 +54,5 @@ Description: python-can
         
         Wherever we interact, we strive to follow the
         `Python Community Code of Conduct <https://www.python.org/psf/codeofconduct/>`__.
+        
 Platform: UNKNOWN
