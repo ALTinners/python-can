@@ -1,3 +1,16 @@
+python-can (2.0.0-1) unstable; urgency=medium
+
+  * Imported python-can 2.0.0
+
+  * Updated d/watch
+  * Set Multi-Arch:foreign for doc package
+  * B-D on python3-sphinx
+  * Updated d/copyright
+    * Added 'licensecheck' rule
+    * Added d/copyright_hints
+
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Sun, 07 Jan 2018 11:00:51 +0100
+
 python-can (1.5.2-3) unstable; urgency=medium
 
   * Added python-can-doc package
