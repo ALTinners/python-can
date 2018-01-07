@@ -1,16 +1,18 @@
-python-can (2.0.0-1) UNRELEASED; urgency=medium
+python-can (2.0.0-1) unstable; urgency=medium
 
   * Imported python-can 2.0.0
 
   * Updated d/watch
   * B-D on python3-sphinx
+  * Depend on python-serial
+  * Dropped manpages for no-longer existing binaries
   * Set Multi-Arch:foreign for doc package
   * Updated d/copyright
     * Added 'licensecheck' rule
     * Added d/copyright_hints
   * Bumped standards version to 4.1.3
 
- -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Sun, 07 Jan 2018 11:18:16 +0100
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Sun, 07 Jan 2018 11:22:31 +0100
 
 python-can (1.5.2-3) unstable; urgency=medium
 
