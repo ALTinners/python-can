@@ -21,7 +21,7 @@ Copyright: (C) 2016 Giuseppe Corbelli <giuseppe.corbelli@weightpack.com>
 License: LGPL-3
 
 Files: can/interfaces/PCANBasic.py
-Copyright: (C) 1999-2013  PEAK-System Technik
+Copyright: (C) 1999-2016  PEAK-System Technik
 License: LGPL-3
 
 Files: debian/*
