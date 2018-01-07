@@ -8,11 +8,11 @@ Build-Depends: debhelper (>= 9), dh-python,
  python-setuptools,
  python-mock,
  python-nose,
- python-sphinx,
  python3-all,
  python3-setuptools,
  python3-mock,
  python3-nose,
+ python3-sphinx,
 Standards-Version: 3.9.8
 Homepage: https://bitbucket.org/hardbyte/python-can
 Vcs-Git: https://anonscm.debian.org/git/python-modules/packages/python-can.git
