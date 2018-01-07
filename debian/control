@@ -23,6 +23,7 @@ Architecture: all
 Depends:
  ${misc:Depends},
  ${python:Depends},
+ python-serial,
 Recommends:
  ${python:Recommends},
 Suggests:
@@ -45,6 +46,7 @@ Architecture: all
 Depends:
  ${misc:Depends},
  ${python3:Depends},
+ python3-serial,
 Recommends:
  ${python3:Recommends},
 Suggests:
