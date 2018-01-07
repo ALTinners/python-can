@@ -20,7 +20,7 @@ Files: can/interfaces/ixxat/*
 Copyright: (C) 2016 Giuseppe Corbelli <giuseppe.corbelli@weightpack.com>
 License: LGPL-3
 
-Files: can/interfaces/PCANBasic.py
+Files: can/interfaces/pcan/PCANBasic.py
 Copyright: (C) 1999-2016  PEAK-System Technik
 License: LGPL-3
 
