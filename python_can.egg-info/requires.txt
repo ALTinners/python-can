@@ -1,3 +1,6 @@
 
+[neovi]
+python-ics
+
 [serial]
 pyserial
