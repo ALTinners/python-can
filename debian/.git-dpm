@@ -2,10 +2,10 @@
 b1e7e700c16404ebef751d3840c71019ae4a6c8e
 b1e7e700c16404ebef751d3840c71019ae4a6c8e
 8b86bd12bdf870db604bedbb4d33339af5b30f46
-8b86bd12bdf870db604bedbb4d33339af5b30f46
-python-can_2.0.0.orig.tar.gz
-4df4fb315d4e60e6e9bcb319c3ec34d9134781ca
-86893
+6b14ec30551d3659426d54c6004e1bb8502ae6bc
+python-can-2.1.0.orig.tar.gz
+9ef0626cbbe1181fbd65afce23c77b14439dbeab
+92632
 debianTag="debian/%e%v"
 patchedTag="patched/%e%v"
 upstreamTag="upstream/%e%u"
