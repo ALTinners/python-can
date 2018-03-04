@@ -1,3 +1,4 @@
+CHANGELOG.txt
 CONTRIBUTORS.txt
 LICENSE.txt
 MANIFEST.in
@@ -23,6 +24,8 @@ can/interfaces/iscan.py
 can/interfaces/nican.py
 can/interfaces/slcan.py
 can/interfaces/virtual.py
+can/interfaces/ics_neovi/__init__.py
+can/interfaces/ics_neovi/neovi_bus.py
 can/interfaces/ixxat/__init__.py
 can/interfaces/ixxat/canlib.py
 can/interfaces/ixxat/constants.py
@@ -32,8 +35,6 @@ can/interfaces/kvaser/__init__.py
 can/interfaces/kvaser/argument_parser.py
 can/interfaces/kvaser/canlib.py
 can/interfaces/kvaser/constants.py
-can/interfaces/neovi_api/__init__.py
-can/interfaces/neovi_api/neovi_api.py
 can/interfaces/pcan/PCANBasic.py
 can/interfaces/pcan/__init__.py
 can/interfaces/pcan/pcan.py
