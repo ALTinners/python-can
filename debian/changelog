@@ -1,3 +1,9 @@
+python-can (2.1.0-2) unstable; urgency=medium
+
+  * Added missing Depends on python-pkg-resources
+
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Thu, 08 Mar 2018 11:25:46 +0100
+
 python-can (2.1.0-1) unstable; urgency=medium
 
   * New upstream release 2.1.0
