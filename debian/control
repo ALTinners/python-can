@@ -24,6 +24,7 @@ Depends:
  ${misc:Depends},
  ${python:Depends},
  python-serial,
+ python-pkg-resources,
 Recommends:
  ${python:Recommends},
 Suggests:
@@ -47,6 +48,7 @@ Depends:
  ${misc:Depends},
  ${python3:Depends},
  python3-serial,
+ python3-pkg-resources,
 Recommends:
  ${python3:Recommends},
 Suggests:
