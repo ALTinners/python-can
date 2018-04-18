@@ -1,3 +1,10 @@
+python-can (2.1.0-3) unstable; urgency=medium
+
+  * Enabled generic DebCI tests for python packages
+  * Bumped standards version to 4.1.4
+
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Wed, 18 Apr 2018 15:46:50 +0200
+
 python-can (2.1.0-2) unstable; urgency=medium
 
   * Added missing Depends on python-pkg-resources
