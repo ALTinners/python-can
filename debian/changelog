@@ -1,3 +1,9 @@
+python-can (2.1.0-4) UNRELEASED; urgency=medium
+
+  * Added README.rst to docs (Closes: #896187)
+
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Fri, 20 Apr 2018 21:58:54 +0200
+
 python-can (2.1.0-3) unstable; urgency=medium
 
   * Enabled generic DebCI tests for python packages
