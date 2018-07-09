@@ -15,6 +15,7 @@ Build-Depends: debhelper (>= 9), dh-python,
  python3-sphinx,
 Testsuite: autopkgtest-pkg-python
 Standards-Version: 4.1.4
+Rules-Requires-Root: no
 Homepage: https://bitbucket.org/hardbyte/python-can
 Vcs-Git: https://salsa.debian.org/python-team/modules/python-can.git
 Vcs-Browser: https://salsa.debian.org/python-team/modules/python-can
