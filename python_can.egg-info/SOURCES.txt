@@ -3,9 +3,8 @@ CONTRIBUTORS.txt
 LICENSE.txt
 MANIFEST.in
 README.rst
-requirements.txt
+setup.cfg
 setup.py
-test.txt
 can/CAN.py
 can/__init__.py
 can/broadcastmanager.py
@@ -17,9 +16,9 @@ can/logger.py
 can/message.py
 can/notifier.py
 can/player.py
+can/thread_safe_bus.py
 can/util.py
 can/interfaces/__init__.py
-can/interfaces/interface.py
 can/interfaces/iscan.py
 can/interfaces/nican.py
 can/interfaces/slcan.py
@@ -32,7 +31,6 @@ can/interfaces/ixxat/constants.py
 can/interfaces/ixxat/exceptions.py
 can/interfaces/ixxat/structures.py
 can/interfaces/kvaser/__init__.py
-can/interfaces/kvaser/argument_parser.py
 can/interfaces/kvaser/canlib.py
 can/interfaces/kvaser/constants.py
 can/interfaces/pcan/PCANBasic.py
@@ -41,10 +39,9 @@ can/interfaces/pcan/pcan.py
 can/interfaces/serial/__init__.py
 can/interfaces/serial/serial_can.py
 can/interfaces/socketcan/__init__.py
-can/interfaces/socketcan/socketcan_common.py
-can/interfaces/socketcan/socketcan_constants.py
-can/interfaces/socketcan/socketcan_ctypes.py
-can/interfaces/socketcan/socketcan_native.py
+can/interfaces/socketcan/constants.py
+can/interfaces/socketcan/socketcan.py
+can/interfaces/socketcan/utils.py
 can/interfaces/usb2can/__init__.py
 can/interfaces/usb2can/serial_selector.py
 can/interfaces/usb2can/usb2canInterface.py
@@ -56,8 +53,8 @@ can/interfaces/vector/vxlapi.py
 can/io/__init__.py
 can/io/asc.py
 can/io/blf.py
+can/io/canutils.py
 can/io/csv.py
-can/io/log.py
 can/io/logger.py
 can/io/player.py
 can/io/sqlite.py
@@ -83,8 +80,6 @@ doc/interfaces/pcan.rst
 doc/interfaces/serial.rst
 doc/interfaces/slcan.rst
 doc/interfaces/socketcan.rst
-doc/interfaces/socketcan_ctypes.rst
-doc/interfaces/socketcan_native.rst
 doc/interfaces/usb2can.rst
 doc/interfaces/vector.rst
 doc/interfaces/virtual.rst
@@ -93,4 +88,7 @@ python_can.egg-info/SOURCES.txt
 python_can.egg-info/dependency_links.txt
 python_can.egg-info/requires.txt
 python_can.egg-info/top_level.txt
+test/test_detect_available_configs.py
 test/test_kvaser.py
+test/test_message_filtering.py
+test/test_socketcan_helpers.py
