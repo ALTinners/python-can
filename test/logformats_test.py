@@ -218,6 +218,7 @@ class TestBlfFileFormat(unittest.TestCase):
         _test_writer_and_reader(self, can.BLFWriter, can.BLFReader,
                                 check_comments=False)
 
+    @unittest.skipUnless(os.path.exists(os.path.join(os.path.dirname(__file__), "data", "logfile.blf")), "no test input data found")
     def test_reader(self):
         logfile = os.path.join(os.path.dirname(__file__), "data", "logfile.blf")
         messages = list(can.BLFReader(logfile))
