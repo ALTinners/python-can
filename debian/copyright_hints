@@ -11,11 +11,10 @@ Files: can/CAN.py
  can/ctypesutil.py
  can/interface.py
  can/interfaces/__init__.py
+ can/interfaces/ics_neovi/__init__.py
+ can/interfaces/ics_neovi/neovi_bus.py
  can/interfaces/iscan.py
  can/interfaces/kvaser/__init__.py
- can/interfaces/kvaser/argument_parser.py
- can/interfaces/neovi_api/__init__.py
- can/interfaces/neovi_api/neovi_api.py
  can/interfaces/nican.py
  can/interfaces/pcan/__init__.py
  can/interfaces/pcan/pcan.py
@@ -23,10 +22,9 @@ Files: can/CAN.py
  can/interfaces/serial/serial_can.py
  can/interfaces/slcan.py
  can/interfaces/socketcan/__init__.py
- can/interfaces/socketcan/socketcan_common.py
- can/interfaces/socketcan/socketcan_constants.py
- can/interfaces/socketcan/socketcan_ctypes.py
- can/interfaces/socketcan/socketcan_native.py
+ can/interfaces/socketcan/constants.py
+ can/interfaces/socketcan/socketcan.py
+ can/interfaces/socketcan/utils.py
  can/interfaces/usb2can/__init__.py
  can/interfaces/usb2can/serial_selector.py
  can/interfaces/usb2can/usb2canInterface.py
@@ -39,8 +37,8 @@ Files: can/CAN.py
  can/io/__init__.py
  can/io/asc.py
  can/io/blf.py
+ can/io/canutils.py
  can/io/csv.py
- can/io/log.py
  can/io/logger.py
  can/io/player.py
  can/io/sqlite.py
@@ -50,8 +48,9 @@ Files: can/CAN.py
  can/message.py
  can/notifier.py
  can/player.py
+ can/test.py
+ can/thread_safe_bus.py
  can/util.py
- debian/changelog
  debian/compat
  debian/control
  debian/patches/series
@@ -59,10 +58,24 @@ Files: can/CAN.py
  debian/source/format
  debian/source/options
  debian/watch
- doc/conf.py
  python_can.egg-info/PKG-INFO
  setup.py
+ test/__init__.py
+ test/back2back_test.py
+ test/config.py
+ test/contextmanager_test.py
+ test/data/__init__.py
+ test/data/example_data.py
+ test/listener_test.py
+ test/logformats_test.py
+ test/network_test.py
+ test/notifier_test.py
+ test/simplecyclic_test.py
+ test/test_detect_available_configs.py
  test/test_kvaser.py
+ test/test_message_filtering.py
+ test/test_socketcan_helpers.py
+ test/zero_dlc_test.py
 Copyright: NONE
 License: UNKNOWN
  FIXME
@@ -76,19 +89,30 @@ Copyright: 2016, Giuseppe Corbelli <giuseppe.corbelli@weightpack.com>
 License: UNKNOWN
  FIXME
 
+Files: debian/copyright
+ debian/copyright_hints
+Copyright: -format/1.0/
+License: UNKNOWN
+ FIXME
+
 Files: can/interfaces/kvaser/canlib.py
  can/interfaces/kvaser/constants.py
 Copyright: 2010, Dynamic Controls
 License: UNKNOWN
  FIXME
 
-Files: debian/copyright
-Copyright: -format/1.0/
+Files: test/serial_test.py
+Copyright: 2017, Boris Wenzlaff
 License: UNKNOWN
  FIXME
 
 Files: can/interfaces/pcan/PCANBasic.py
-Copyright: 1999-2016, PEAK-System Technik GmbH, Darmstadt
+Copyright: 1999-2017, PEAK-System Technik GmbH, Darmstadt, Germany
+License: UNKNOWN
+ FIXME
+
+Files: debian/changelog
+Copyright: Use https protocol in Format field
 License: UNKNOWN
  FIXME
 
