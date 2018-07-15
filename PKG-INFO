@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: python-can
-Version: 2.2.0
+Version: 2.2.1
 Summary: Controller Area Network interface module for Python
 Home-page: https://github.com/hardbyte/python-can
 Author: Brian Thorne
@@ -66,6 +66,6 @@ Description: python-can
         
 Platform: UNKNOWN
 Requires-Python: >=2.7,!=3.0,!=3.1,!=3.2,!=3.3
-Provides-Extra: neovi
 Provides-Extra: serial
+Provides-Extra: neovi
 Provides-Extra: test

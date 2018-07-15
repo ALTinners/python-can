@@ -5,6 +5,7 @@ MANIFEST.in
 README.rst
 setup.cfg
 setup.py
+test.txt
 can/CAN.py
 can/__init__.py
 can/broadcastmanager.py
@@ -16,6 +17,7 @@ can/logger.py
 can/message.py
 can/notifier.py
 can/player.py
+can/test.py
 can/thread_safe_bus.py
 can/util.py
 can/interfaces/__init__.py
@@ -88,7 +90,20 @@ python_can.egg-info/SOURCES.txt
 python_can.egg-info/dependency_links.txt
 python_can.egg-info/requires.txt
 python_can.egg-info/top_level.txt
+test/__init__.py
+test/back2back_test.py
+test/config.py
+test/contextmanager_test.py
+test/listener_test.py
+test/logformats_test.py
+test/network_test.py
+test/notifier_test.py
+test/serial_test.py
+test/simplecyclic_test.py
 test/test_detect_available_configs.py
 test/test_kvaser.py
 test/test_message_filtering.py
 test/test_socketcan_helpers.py
+test/zero_dlc_test.py
+test/data/__init__.py
+test/data/example_data.py

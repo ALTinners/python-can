@@ -1,0 +1,23 @@
+From ae6be8efd07d15c60bbef98f1585d33af444c602 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?IOhannes=20m=20zm=C3=B6lnig=20=28Debian/GNU=29?=
+ <umlaeute@debian.org>
+Date: Sun, 15 Jul 2018 23:35:42 +0200
+Subject: Skip unit-tests that require kernel-module to be loaded
+
+---
+ test/test_detect_available_configs.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/test_detect_available_configs.py b/test/test_detect_available_configs.py
+index c3e5958..a5b019c 100644
+--- a/test/test_detect_available_configs.py
++++ b/test/test_detect_available_configs.py
+@@ -45,7 +45,7 @@ class TestDetectAvailableConfigs(unittest.TestCase):
+         for config in configs:
+             self.assertEqual(config['interface'], 'socketcan')
+ 
+-    @unittest.skipUnless(IS_LINUX, "socketcan is only available on Linux")
++    @unittest.skipUnless(False and IS_LINUX, "socketcan is only available on Linux")
+     def test_socketcan_on_ci_server(self):
+         configs = detect_available_configs(interfaces='socketcan')
+         self.assertGreaterEqual(len(configs), 1)
