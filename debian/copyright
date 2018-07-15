@@ -4,28 +4,28 @@ Upstream-Contact: Brian Thorne <hardbyte@gmail.com>
 Source: https://bitbucket.org/hardbyte/python-can
 
 Files: *
-Copyright: Brian Thorne <hardbyte@gmail.com> et al.
+Copyright: 2010-2018 Brian Thorne <hardbyte@gmail.com> et al.
 License: LGPL-3
 
 Files: can/CAN.py
-Copyright: (C) 2010 Dynamic Controls
- (C) 2010-2016 Brian Thorne <hardbyte@gmail.com> et al.
+Copyright: 2010 Dynamic Controls
+ 2010-2016 Brian Thorne <hardbyte@gmail.com> et al.
 License: LGPL-3
 
 Files: can/interfaces/kvaser/*
-Copyright: (C) 2010 Dynamic Controls
+Copyright: 2010 Dynamic Controls
 License: LGPL-3
 
 Files: can/interfaces/ixxat/*
-Copyright: (C) 2016 Giuseppe Corbelli <giuseppe.corbelli@weightpack.com>
+Copyright: 2016 Giuseppe Corbelli <giuseppe.corbelli@weightpack.com>
 License: LGPL-3
 
 Files: can/interfaces/pcan/PCANBasic.py
-Copyright: (C) 1999-2016  PEAK-System Technik
+Copyright: 1999-2017  PEAK-System Technik
 License: LGPL-3
 
 Files: debian/*
-Copyright: 2016 © IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>
+Copyright: 2016-2018 IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>
 License: LGPL-3
 
 License: LGPL-3
