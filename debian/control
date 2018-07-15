@@ -8,11 +8,17 @@ Build-Depends: debhelper (>= 9), dh-python,
  python-setuptools,
  python-mock,
  python-nose,
+ python-pytest,
+ python-serial,
+ python-wrapt,
  python3-all,
  python3-setuptools,
  python3-mock,
  python3-nose,
+ python3-pytest,
+ python3-serial,
  python3-sphinx,
+ python3-wrapt,
 Testsuite: autopkgtest-pkg-python
 Standards-Version: 4.1.5
 Rules-Requires-Root: no
