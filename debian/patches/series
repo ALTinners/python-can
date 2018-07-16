@@ -1,3 +1,4 @@
 0001-Added-missing-sphinx-config.patch
 0002-Skip-unit-tests-that-lack-input-data.patch
 0003-Skip-unit-tests-that-require-kernel-module-to-be-loa.patch
+0004-Fixed-ASCII-encoding-on-python36.patch
