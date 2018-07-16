@@ -6,13 +6,15 @@ python-can (2.2.1-1) unstable; urgency=medium
     * Added missing sphinx-config
     * Skip unit-tests that lack inpurt data
     * Skip unit-tests that require kernel-module to be loaded
+    * Patch to skip some minor failing test on Py3.6
+  * Dropped git-dpm
   * Added README.rst to docs (Closes: #896187, #903188)
   * Added new B-Ds for testsuite
   * Don't require "root" for building
   * Updated d/copyright(_hints)
   * Bumped standards version to 4.1.5
 
- -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Sun, 15 Jul 2018 23:55:22 +0200
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Mon, 16 Jul 2018 11:47:12 +0200
 
 python-can (2.1.0-3) unstable; urgency=medium
 
