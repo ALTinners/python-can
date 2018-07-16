@@ -6,7 +6,15 @@ Last-Update: 2018-07-16
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- python-can.orig/test/logformats_test.py
 +++ python-can/test/logformats_test.py
-@@ -157,6 +157,7 @@
+@@ -21,6 +21,7 @@
+ from time import sleep
+ import sqlite3
+ import os
++import sys
+ 
+ try:
+     # Python 3
+@@ -157,6 +158,7 @@
  class TestAscFileFormat(unittest.TestCase):
      """Tests can.ASCWriter and can.ASCReader"""
  
