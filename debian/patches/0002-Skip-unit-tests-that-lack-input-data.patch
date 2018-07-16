@@ -2,7 +2,7 @@ From 8d2dfad4b3c590b8d067639ed0c50de20c33262a Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?IOhannes=20m=20zm=C3=B6lnig=20=28Debian/GNU=29?=
  <umlaeute@debian.org>
 Date: Sun, 15 Jul 2018 23:35:22 +0200
-Subject: Skip unit-tests that lack inpurt data
+Subject: Skip unit-tests that lack input data
 
 forgotten by upstream...
 ---
