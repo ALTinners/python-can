@@ -1,7 +1,6 @@
 python-can (2.2.1-1) unstable; urgency=medium
 
   * Import python-can_2.2.1.orig.tar.gz
-    * record new upstream branch created by importing python-can_2.2.1.orig.tar.gz
   * Patches
     * Added missing sphinx-config
     * Skip unit-tests that lack inpurt data
