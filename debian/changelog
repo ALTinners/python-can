@@ -1,3 +1,9 @@
+python-can (2.2.1-2) UNRELEASED; urgency=medium
+
+  * Use 'python3 -m sphinx' instead of sphinx-build for building docs
+
+ -- Ondřej Nový <onovy@debian.org>  Mon, 27 Aug 2018 15:08:36 +0200
+
 python-can (2.2.1-1) unstable; urgency=medium
 
   * Import python-can_2.2.1.orig.tar.gz

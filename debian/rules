@@ -11,7 +11,7 @@ override_dh_clean:
 
 override_dh_auto_build:
 	dh_auto_build
-	sphinx-build -E -T -b html doc $(CURDIR)/.pybuild/docs/html/
+	python3 -m sphinx -E -T -b html doc $(CURDIR)/.pybuild/docs/html/
 	#rm -rf $(CURDIR)/.pybuild/docs/html/.doctrees
 
 override_dh_auto_install:
