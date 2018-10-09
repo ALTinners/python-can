@@ -20,9 +20,19 @@ Files: can/interfaces/ixxat/*
 Copyright: 2016 Giuseppe Corbelli <giuseppe.corbelli@weightpack.com>
 License: LGPL-3
 
-Files: can/interfaces/pcan/PCANBasic.py
+Files: can/interfaces/pcan/basic.py
 Copyright: 1999-2017  PEAK-System Technik
 License: LGPL-3
+
+Files: can/viewer.py
+ test/test_viewer.py
+Copyright: 2018, Kristian Sloth Lauszus.
+License: LGPL-3
+Comment:
+ The code has an "All rights reserved" boilerplate.
+ However, this has been changed to LGPL-3+ by the original
+ author in https://github.com/hardbyte/python-can/pull/456 (merged)
+ for the next release (3.1)
 
 Files: debian/*
 Copyright: 2016-2018 IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>

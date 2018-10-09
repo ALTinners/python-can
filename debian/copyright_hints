@@ -39,16 +39,16 @@ Files: can/CAN.py
  can/io/blf.py
  can/io/canutils.py
  can/io/csv.py
+ can/io/generic.py
  can/io/logger.py
  can/io/player.py
+ can/io/printer.py
  can/io/sqlite.py
- can/io/stdout.py
  can/listener.py
  can/logger.py
  can/message.py
  can/notifier.py
  can/player.py
- can/test.py
  can/thread_safe_bus.py
  can/util.py
  debian/compat
@@ -59,23 +59,18 @@ Files: can/CAN.py
  debian/source/options
  debian/watch
  python_can.egg-info/PKG-INFO
+ scripts/can_logger.py
+ scripts/can_player.py
+ scripts/can_viewer.py
  setup.py
- test/__init__.py
- test/back2back_test.py
- test/config.py
- test/contextmanager_test.py
  test/data/__init__.py
  test/data/example_data.py
- test/listener_test.py
- test/logformats_test.py
- test/network_test.py
- test/notifier_test.py
- test/simplecyclic_test.py
  test/test_detect_available_configs.py
  test/test_kvaser.py
+ test/test_load_file_config.py
  test/test_message_filtering.py
+ test/test_scripts.py
  test/test_socketcan_helpers.py
- test/zero_dlc_test.py
 Copyright: NONE
 License: UNKNOWN
  FIXME
@@ -101,12 +96,13 @@ Copyright: 2010, Dynamic Controls
 License: UNKNOWN
  FIXME
 
-Files: test/serial_test.py
-Copyright: 2017, Boris Wenzlaff
+Files: can/viewer.py
+ test/test_viewer.py
+Copyright: 2018, Kristian Sloth Lauszus.
 License: UNKNOWN
  FIXME
 
-Files: can/interfaces/pcan/PCANBasic.py
+Files: can/interfaces/pcan/basic.py
 Copyright: 1999-2017, PEAK-System Technik GmbH, Darmstadt, Germany
 License: UNKNOWN
  FIXME
