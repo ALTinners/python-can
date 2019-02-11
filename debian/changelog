@@ -1,9 +1,18 @@
-python-can (3.0.0+github-1) UNRELEASED; urgency=medium
+python-can (3.0.0+github-1) unstable; urgency=medium
 
-  * Add gbp.conf
   * New upstream version 3.0.0+github
+    * Upstream provides a nicer tarball on github than via pypi
+    * Drop patches that are no longer needed
+    * Refresh patches
+  * Add B-Ds required for the testsuite
+  * Alphabetically sort B-Ds
+  * Build and install manpages
+  * Fixed doc installation paths
+  * Add gbp.conf
+  * Bumped dh compat to 12
+  * Bumped standards version to 4.3.0
 
- -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Mon, 11 Feb 2019 22:13:26 +0100
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Mon, 11 Feb 2019 23:19:15 +0100
 
 python-can (3.0.0-1) unstable; urgency=medium
 
