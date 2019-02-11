@@ -1,3 +1,10 @@
+python-can (3.0.0+github-1) UNRELEASED; urgency=medium
+
+  * Add gbp.conf
+  * New upstream version 3.0.0+github
+
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Mon, 11 Feb 2019 22:13:26 +0100
+
 python-can (3.0.0-1) unstable; urgency=medium
 
   * New upstream version 3.0.0
