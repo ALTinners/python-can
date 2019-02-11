@@ -1,0 +1,21 @@
+From: =?utf-8?q?=22IOhannes_m_zm=C3=B6lnig_=28Debian/GNU=29=22?=
+ <umlaeute@debian.org>
+Date: Tue, 9 Oct 2018 20:56:41 +0200
+Subject: removed broken pytest config from setup.cfg
+
+---
+ setup.cfg | 3 ---
+ 1 file changed, 3 deletions(-)
+
+--- python-can.orig/setup.cfg
++++ python-can/setup.cfg
+@@ -4,9 +4,6 @@
+ [metadata]
+ license_file = LICENSE.txt
+ 
+-[tool:pytest]
+-addopts = -v --timeout=300 --cov=can --cov-config=setup.cfg
+-
+ [coverage:run]
+ # we could also use branch coverage
+ branch = False
