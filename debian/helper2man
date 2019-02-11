@@ -1,0 +1,12 @@
+#!/bin/sh
+
+module=${0##*can_}
+
+case "$1" in
+  -h|--help)
+     python -m can.${module} --help
+     ;;
+  -v|--version)
+     echo "${DEB_VERSION_UPSTREAM}"
+     ;;
+esac

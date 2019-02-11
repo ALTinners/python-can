@@ -2,6 +2,10 @@
 
 export PYBUILD_NAME=can
 export PYBUILD_AFTER_INSTALL_python2=rm -rf {destdir}/usr/bin/
+
+include /usr/share/dpkg/default.mk
+export DEB_VERSION_UPSTREAM
+
 %:
 	dh $@ --with python3,python2,sphinxdoc --buildsystem=pybuild
 
@@ -25,3 +29,14 @@ licensecheck:
 		> debian/copyright_newhints
 	cmp debian/copyright_hints debian/copyright_newhints \
 		&& rm debian/copyright_newhints
+
+manpages=debian/can_logger.1 debian/can_player.1 debian/can_viewer.1
+
+
+$(manpages): debian/helper2man
+	cp $^ $(@:.1=)
+	help2man -N -o $@ ./$(@:.1=)
+	-rm $(@:.1=)
+
+.PHONY: manpages
+manpages: $(manpages)
