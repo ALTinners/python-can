@@ -8,6 +8,7 @@ export PYBUILD_AFTER_INSTALL_python2=rm -rf {destdir}/usr/bin/
 override_dh_clean:
 	dh_clean
 	rm -f test.asc test.csv
+	rm -rf .pytest_cache/
 
 override_dh_auto_build:
 	dh_auto_build
