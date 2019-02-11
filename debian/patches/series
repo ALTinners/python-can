@@ -1,1 +1,2 @@
 0001-removed-broken-pytest-config-from-setup.cfg.patch
+0002-disable-broken-tests.patch
