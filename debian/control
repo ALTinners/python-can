@@ -18,6 +18,7 @@ Build-Depends: debhelper (>= 9), dh-python,
  python3-pytest,
  python3-serial,
  python3-sphinx,
+ python3-sphinxcontrib.programoutput,
  python3-wrapt,
 Testsuite: autopkgtest-pkg-python
 Standards-Version: 4.2.1
