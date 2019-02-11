@@ -1,3 +1,9 @@
+Description: temporarily disable script tests
+Author: IOhannes m zmölnig
+Forwarded: not-needed
+Last-Update: 2019-02-11
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- python-can.orig/test/test_scripts.py
 +++ python-can/test/test_scripts.py
 @@ -78,10 +78,10 @@
