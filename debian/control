@@ -3,7 +3,7 @@ Section: python
 Priority: optional
 Maintainer: IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>
 Uploaders: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
-Build-Depends: debhelper (>= 12), dh-python,
+Build-Depends: debhelper-compat (= 12), dh-python,
  python-all,
  python-future,
  python-mock,
