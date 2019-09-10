@@ -2,3 +2,4 @@
 0002-disable-broken-tests.patch
 0003-aenum-enum.patch
 0004-sphinx-autodoc-typehints.patch
+0005-python3.patch
