@@ -1,0 +1,19 @@
+Description: Remove dependency on python3-sphinx-autodoc-typehints
+ as this is currently only available in experimental.
+ Once the autodoc-typehints patckage hits unstable, disable this patch
+Author: IOhannes m zmölnig
+Origin: Debian
+Forwarded: not-needed
+Last-Update: 2019-09-10
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- python-can.orig/doc/conf.py
++++ python-can/doc/conf.py
+@@ -43,7 +43,6 @@
+     "sphinx.ext.viewcode",
+     "sphinx.ext.graphviz",
+     "sphinxcontrib.programoutput",
+-    "sphinx_autodoc_typehints",
+ ]
+ 
+ # Now, you can use the alias name as a new role, e.g. :issue:`123`.

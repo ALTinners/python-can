@@ -1,3 +1,4 @@
 0001-removed-broken-pytest-config-from-setup.cfg.patch
 0002-disable-broken-tests.patch
 0003-aenum-enum.patch
+0004-sphinx-autodoc-typehints.patch
