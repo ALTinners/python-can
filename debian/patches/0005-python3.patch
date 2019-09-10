@@ -101,3 +101,37 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
          ]
  #        if IS_UNIX:
  #            commands += ["can_player.py --help"]
+--- python-can.orig/doc/scripts.rst
++++ python-can/doc/scripts.rst
+@@ -3,7 +3,7 @@
+ 
+ The following modules are callable from python-can.
+ 
+-They can be called for example by ``python -m can.logger`` or ``can_logger.py`` (if installed using pip).
++They can be called for example by ``python3 -m can.logger`` or ``can_logger.py`` (if installed using pip).
+ 
+ can.logger
+ ----------
+@@ -11,13 +11,13 @@
+ Command line help, called with ``--help``:
+ 
+ 
+-.. command-output:: python -m can.logger -h
++.. command-output:: python3 -m can.logger -h
+ 
+ 
+ can.player
+ ----------
+ 
+-.. command-output:: python -m can.player -h
++.. command-output:: python3 -m can.player -h
+ 
+ 
+ can.viewer
+@@ -37,5 +37,5 @@
+ 
+ The full usage page can be seen below:
+ 
+-.. command-output:: python -m can.viewer -h
++.. command-output:: python3 -m can.viewer -h
+ 
