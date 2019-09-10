@@ -1,6 +1,7 @@
 #! /usr/bin/make -f
 
 export PYBUILD_NAME=can
+export PYBUILD_BEFORE_TEST=cp -rav {dir}/test {build_dir}
 
 include /usr/share/dpkg/default.mk
 export DEB_VERSION_UPSTREAM
