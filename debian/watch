@@ -1,5 +1,6 @@
 # process this file with uscan(1)
 version=4
-opts=dversionmangle=s/~(dfsg|repack)([.]?[0-9]*)?$//,uversionmangle=s/(rc|a|b|c)/~\\1/ \
-https://pypi.python.org/packages/source/p/python-can/ \
- python-can-@ANY_VERSION@@ARCHIVE_EXT@ debian uupdate
+opts=dversionmangle=s/~(ds|repack|github)([.]?[0-9]*)?$//,uversionmangle=s/(rc|a|b|c)/~\\1/,oversionmangle=s/$/~github/ \
+  https://github.com/hardbyte/python-can/tags .*/v?(\d\S*)\.tar\.gz
+
+#https://pypi.python.org/packages/source/p/python-can/ python-can-@ANY_VERSION@@ARCHIVE_EXT@ debian uupdate
