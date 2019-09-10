@@ -4,15 +4,11 @@ Upstream-Contact: Brian Thorne <hardbyte@gmail.com>
 Source: https://bitbucket.org/hardbyte/python-can
 
 Files: *
-Copyright: 2010-2018 Brian Thorne <hardbyte@gmail.com> et al.
-License: LGPL-3
-
-Files: can/CAN.py
-Copyright: 2010 Dynamic Controls
- 2010-2016 Brian Thorne <hardbyte@gmail.com> et al.
+Copyright: 2010-2019 Brian Thorne <hardbyte@gmail.com> et al.
 License: LGPL-3
 
 Files: can/interfaces/kvaser/*
+ can/logger.py
 Copyright: 2010 Dynamic Controls
 License: LGPL-3
 
@@ -27,17 +23,20 @@ License: LGPL-3
 Files: can/viewer.py
  test/test_viewer.py
 Copyright: 2018, Kristian Sloth Lauszus.
+License: LGPL-3+
+
+Files: test/serial_test.py
+Copyright: 2017, Boris Wenzlaff
 License: LGPL-3
-Comment:
- The code has an "All rights reserved" boilerplate.
- However, this has been changed to LGPL-3+ by the original
- author in https://github.com/hardbyte/python-can/pull/456 (merged)
- for the next release (3.1)
 
 Files: debian/*
-Copyright: 2016-2018 IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>
+Copyright: 2016-2019 IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>
 License: LGPL-3
 
 License: LGPL-3
+ On Debian systems, the complete text of the GNU Lesser General
+ Public License version 3 can be found in "/usr/share/common-licenses/LGPL-3".
+
+License: LGPL-3+
  On Debian systems, the complete text of the GNU Lesser General
  Public License version 3 can be found in "/usr/share/common-licenses/LGPL-3".
