@@ -11,23 +11,21 @@ A form of CAN interface is also required.
 
 .. toctree::
    :maxdepth: 1
-   
+
    bus
    message
    listeners
    asyncio
    bcm
+   bit_timing
+   internal-api
 
 
 Utilities
 ---------
 
-.. automodule:: can.util
-    :members:
 
-.. automethod:: can.detect_available_configs
-
-
+.. autofunction:: can.detect_available_configs
 
 
 .. _notifier:
