@@ -11,6 +11,11 @@ https://github.com/hardbyte/python-can
 There is also a `python-can <https://groups.google.com/forum/#!forum/python-can>`__
 mailing list for development discussion.
 
+Some more information about the internals of this library can be found
+in the chapter :ref:`internalapi`.
+There is also additional information on extending the ``can.io`` module.
+
+
 
 Building & Installing
 ---------------------
@@ -35,61 +40,14 @@ These steps are a guideline on how to add a new backend to python-can.
 - Create a module (either a ``*.py`` or an entire subdirectory depending
   on the complexity) inside ``can.interfaces``
 - Implement the central part of the backend: the bus class that extends
-  :class:`can.BusABC`. See below for more info on this one!
+  :class:`can.BusABC`.
+  See :ref:`businternals` for more info on this one!
 - Register your backend bus class in ``can.interface.BACKENDS`` and
   ``can.interfaces.VALID_INTERFACES`` in ``can.interfaces.__init__.py``.
 - Add docs where appropriate. At a minimum add to ``doc/interfaces.rst`` and add
   a new interface specific document in ``doc/interface/*``.
 - Update ``doc/scripts.rst`` accordingly.
 - Add tests in ``test/*`` where appropriate.
-
-
-About the ``BusABC`` class
---------------------------
-
-Concrete implementations *have to* implement the following:
-    * :meth:`~can.BusABC.send` to send individual messages
-    * :meth:`~can.BusABC._recv_internal` to receive individual messages
-      (see note below!)
-    * set the :attr:`~can.BusABC.channel_info` attribute to a string describing
-      the underlying bus and/or channel
-
-They *might* implement the following:
-    * :meth:`~can.BusABC.flush_tx_buffer` to allow discarding any
-      messages yet to be sent
-    * :meth:`~can.BusABC.shutdown` to override how the bus should
-      shut down
-    * :meth:`~can.BusABC._send_periodic_internal` to override the software based
-      periodic sending and push it down to the kernel or hardware.
-    * :meth:`~can.BusABC._apply_filters` to apply efficient filters
-      to lower level systems like the OS kernel or hardware.
-    * :meth:`~can.BusABC._detect_available_configs` to allow the interface
-      to report which configurations are currently available for new
-      connections.
-    * :meth:`~can.BusABC.state` property to allow reading and/or changing
-      the bus state.
-
-.. note::
-
-    *TL;DR*: Only override :meth:`~can.BusABC._recv_internal`,
-    never :meth:`~can.BusABC.recv` directly.
-    
-    Previously, concrete bus classes had to override :meth:`~can.BusABC.recv`
-    directly instead of :meth:`~can.BusABC._recv_internal`, but that has
-    changed to allow the abstract base class to handle in-software message
-    filtering as a fallback. All internal interfaces now implement that new
-    behaviour. Older (custom) interfaces might still be implemented like that
-    and thus might not provide message filtering:
-
-This is the entire ABC bus class with all internal methods:
-
-.. autoclass:: can.BusABC
-    :private-members:
-    :special-members:
-    :noindex:
-
-
-Concrete instances are created by :class:`can.Bus`.
 
 
 Code Structure
@@ -111,8 +69,6 @@ The modules in ``python-can`` are:
 |:doc:`broadcastmanager <bcm>`    | Contains interface independent broadcast manager     |
 |                                 | code.                                                |
 +---------------------------------+------------------------------------------------------+
-|:doc:`CAN <api>`                 | Legacy API. Deprecated.                              |
-+---------------------------------+------------------------------------------------------+
 
 
 Creating a new Release
@@ -131,4 +87,7 @@ Creating a new Release
 - Upload with twine ``twine upload dist/python-can-X.Y.Z*``.
 - In a new virtual env check that the package can be installed with pip: ``pip install python-can==X.Y.Z``.
 - Create a new tag in the repository.
-- Check the release on PyPi, Read the Docs and GitHub.
+- Check the release on
+  `PyPi <https://pypi.org/project/python-can/#history>`__,
+  `Read the Docs <https://readthedocs.org/projects/python-can/versions/>`__ and
+  `GitHub <https://github.com/hardbyte/python-can/releases>`__.
