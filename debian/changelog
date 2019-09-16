@@ -1,3 +1,10 @@
+python-can (3.3.2.final~github-1) unstable; urgency=medium
+
+  * New upstream version 3.3.2.final~github
+    * Refresh patches
+
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Mon, 16 Sep 2019 11:36:36 +0200
+
 python-can (3.3.2~github-1) unstable; urgency=medium
 
   * New upstream version 3.3.2~github
