@@ -9,7 +9,7 @@ Subject: removed broken pytest config from setup.cfg
 
 --- python-can.orig/setup.cfg
 +++ python-can/setup.cfg
-@@ -4,9 +4,6 @@
+@@ -7,9 +7,6 @@
  [metadata]
  license_file = LICENSE.txt
  

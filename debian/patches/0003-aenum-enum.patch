@@ -6,15 +6,15 @@ Last-Update: 2019-09-10
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- python-can.orig/can/bus.py
 +++ python-can/can/bus.py
-@@ -13,7 +13,10 @@
- import logging
+@@ -11,7 +11,10 @@
  import threading
  from time import time
+ from collections import namedtuple
 -from aenum import Enum, auto
 +try:
 +  from aenum import Enum, auto
 +except ImportError:
 +  from enum import Enum, auto
  
- from can.broadcastmanager import ThreadBasedCyclicSendTask
- from can.message import Message
+ from .broadcastmanager import ThreadBasedCyclicSendTask
+ 
