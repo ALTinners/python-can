@@ -4,6 +4,8 @@
 This interface is for Windows only, otherwise use socketCAN.
 """
 
+from __future__ import division, print_function, absolute_import
+
 import logging
 from ctypes import byref
 
@@ -12,7 +14,7 @@ from .usb2canabstractionlayer import *
 from .serial_selector import find_serial_devices
 
 # Set up logging
-log = logging.getLogger("can.usb2can")
+log = logging.getLogger('can.usb2can')
 
 
 def message_convert_tx(msg):
@@ -46,15 +48,13 @@ def message_convert_rx(message_rx):
     is_remote_frame = bool(message_rx.flags & IS_REMOTE_FRAME)
     is_error_frame = bool(message_rx.flags & IS_ERROR_FRAME)
 
-    return Message(
-        timestamp=message_rx.timestamp,
-        is_remote_frame=is_remote_frame,
-        is_extended_id=is_extended_id,
-        is_error_frame=is_error_frame,
-        arbitration_id=message_rx.id,
-        dlc=message_rx.sizeData,
-        data=message_rx.data[: message_rx.sizeData],
-    )
+    return Message(timestamp=message_rx.timestamp,
+                   is_remote_frame=is_remote_frame,
+                   is_extended_id=is_extended_id,
+                   is_error_frame=is_error_frame,
+                   arbitration_id=message_rx.id,
+                   dlc=message_rx.sizeData,
+                   data=message_rx.data[:message_rx.sizeData])
 
 
 class Usb2canBus(BusABC):
@@ -85,20 +85,16 @@ class Usb2canBus(BusABC):
 
     """
 
-    def __init__(
-        self,
-        channel=None,
-        dll="usb2can.dll",
-        flags=0x00000008,
-        *args,
-        bitrate=500000,
-        **kwargs
-    ):
+    def __init__(self, channel=None, dll="usb2can.dll", flags=0x00000008,
+                 bitrate=500000, *args, **kwargs):
 
         self.can = Usb2CanAbstractionLayer(dll)
 
         # get the serial number of the device
-        device_id = kwargs.get("serial", d=channel)
+        if "serial" in kwargs:
+            device_id = kwargs["serial"]
+        else:
+            device_id = channel
 
         # search for a serial number if the device_id is None or empty
         if not device_id:
@@ -113,11 +109,10 @@ class Usb2canBus(BusABC):
         self.channel_info = "USB2CAN device {}".format(device_id)
 
         connector = "{}; {}".format(device_id, baudrate)
-        self.handle = self.can.open(connector, flags_t)
+        self.handle = self.can.open(connector, flags)
 
-        super().__init__(
-            channel=channel, dll=dll, flags_t=flags_t, bitrate=bitrate, *args, **kwargs
-        )
+        super(Usb2canBus, self).__init__(channel=channel, dll=dll, flags=flags,
+                                         bitrate=bitrate, *args, **kwargs)
 
     def send(self, msg, timeout=None):
         tx = message_convert_tx(msg)
@@ -129,6 +124,7 @@ class Usb2canBus(BusABC):
 
         if status != CANAL_ERROR_SUCCESS:
             raise CanError("could not send message: status == {}".format(status))
+
 
     def _recv_internal(self, timeout):
 
@@ -143,10 +139,10 @@ class Usb2canBus(BusABC):
 
         if status == CANAL_ERROR_SUCCESS:
             rx = message_convert_rx(messagerx)
-        elif status in (CANAL_ERROR_RCV_EMPTY, CANAL_ERROR_TIMEOUT):
+        elif status == CANAL_ERROR_RCV_EMPTY or status == CANAL_ERROR_TIMEOUT:
             rx = None
         else:
-            log.error("Canal Error %s", status)
+            log.error('Canal Error %s', status)
             rx = None
 
         return rx, False
@@ -163,11 +159,7 @@ class Usb2canBus(BusABC):
             raise CanError("could not shut down bus: status == {}".format(status))
 
     @staticmethod
-    def _detect_available_configs():
-        return Usb2canBus.detect_available_configs()
-
-    @staticmethod
-    def detect_available_configs(serial_matcher=None):
+    def _detect_available_configs(serial_matcher=None):
         """
         Uses the Windows Management Instrumentation to identify serial devices.
 
@@ -179,4 +171,4 @@ class Usb2canBus(BusABC):
         else:
             channels = find_serial_devices()
 
-        return [{"interface": "usb2can", "channel": c} for c in channels]
+        return [{'interface': 'usb2can', 'channel': c} for c in channels]

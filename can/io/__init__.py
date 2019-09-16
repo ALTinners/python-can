@@ -5,6 +5,8 @@ Read and write CAN bus messages using a range of Readers
 and Writers based off the file extension.
 """
 
+from __future__ import absolute_import
+
 # Generic
 from .logger import Logger
 from .player import LogReader, MessageSync

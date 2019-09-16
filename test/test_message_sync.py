@@ -5,6 +5,8 @@
 This module tests :class:`can.MessageSync`.
 """
 
+from __future__ import absolute_import
+
 from copy import copy
 from time import time
 import gc
@@ -30,11 +32,10 @@ def inc(value):
         return value
 
 
-@unittest.skipIf(
-    IS_APPVEYOR or (IS_TRAVIS and IS_OSX),
-    "this environment's timings are too unpredictable",
-)
+@unittest.skipIf(IS_APPVEYOR or (IS_TRAVIS and IS_OSX),
+                 "this environment's timings are too unpredictable")
 class TestMessageSync(unittest.TestCase, ComparingMessagesTestCase):
+
     def __init__(self, *args, **kwargs):
         unittest.TestCase.__init__(self, *args, **kwargs)
         ComparingMessagesTestCase.__init__(self)
@@ -54,7 +55,7 @@ class TestMessageSync(unittest.TestCase, ComparingMessagesTestCase):
             Message(timestamp=50.0),
             Message(timestamp=50.0 + 0.05),
             Message(timestamp=50.0 + 0.05 + 0.08),
-            Message(timestamp=50.0),  # back in time
+            Message(timestamp=50.0) # back in time
         ]
         sync = MessageSync(messages, gap=0.0)
 
@@ -76,7 +77,7 @@ class TestMessageSync(unittest.TestCase, ComparingMessagesTestCase):
         self.assertTrue(0.075 <= timings[3] < inc(0.085), str(timings[3]))
         self.assertTrue(0.0 <= timings[4] < inc(0.005), str(timings[4]))
 
-    @pytest.mark.timeout(inc(0.1) * len(TEST_FEWER_MESSAGES))  # very conservative
+    @pytest.mark.timeout(inc(0.1) * len(TEST_FEWER_MESSAGES)) # very conservative
     def test_skip(self):
         messages = copy(TEST_FEWER_MESSAGES)
         sync = MessageSync(messages, skip=0.005, gap=0.0)
@@ -93,17 +94,19 @@ class TestMessageSync(unittest.TestCase, ComparingMessagesTestCase):
         self.assertMessagesEqual(messages, collected)
 
 
-if not IS_APPVEYOR:  # this environment's timings are too unpredictable
+if not IS_APPVEYOR: # this environment's timings are too unpredictable
 
     @pytest.mark.timeout(inc(0.3))
-    @pytest.mark.parametrize(
-        "timestamp_1,timestamp_2", [(0.0, 0.0), (0.0, 0.01), (0.01, 0.0)]
-    )
+    @pytest.mark.parametrize("timestamp_1,timestamp_2", [
+        (0.0, 0.0),
+        (0.0, 0.01),
+        (0.01, 0.0),
+    ])
     def test_gap(timestamp_1, timestamp_2):
         """This method is alone so it can be parameterized."""
         messages = [
             Message(arbitration_id=0x1, timestamp=timestamp_1),
-            Message(arbitration_id=0x2, timestamp=timestamp_2),
+            Message(arbitration_id=0x2, timestamp=timestamp_2)
         ]
         sync = MessageSync(messages, gap=0.1)
 
@@ -118,5 +121,5 @@ if not IS_APPVEYOR:  # this environment's timings are too unpredictable
         assert messages == collected
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

@@ -4,10 +4,9 @@
 See the :class:`Logger` class.
 """
 
-import pathlib
-import typing
+from __future__ import absolute_import
 
-import can.typechecking
+import logging
 
 from ..listener import Listener
 from .generic import BaseIOHandler
@@ -18,8 +17,10 @@ from .csv import CSVWriter
 from .sqlite import SqliteWriter
 from .printer import Printer
 
+log = logging.getLogger("can.io.logger")
 
-class Logger(BaseIOHandler, Listener):  # pylint: disable=abstract-method
+
+class Logger(BaseIOHandler, Listener):
     """
     Logs CAN messages to a file.
 
@@ -29,42 +30,36 @@ class Logger(BaseIOHandler, Listener):  # pylint: disable=abstract-method
       * .csv: :class:`can.CSVWriter`
       * .db: :class:`can.SqliteWriter`
       * .log :class:`can.CanutilsLogWriter`
-      * .txt :class:`can.Printer`
-
-    The **filename** may also be *None*, to fall back to :class:`can.Printer`.
+      * other: :class:`can.Printer`
 
     The log files may be incomplete until `stop()` is called due to buffering.
 
     .. note::
-        This class itself is just a dispatcher, and any positional and keyword
+        This class itself is just a dispatcher, and any positional an keyword
         arguments are passed on to the returned instance.
     """
 
     @staticmethod
-    def __new__(
-        cls, filename: typing.Optional[can.typechecking.StringPathLike], *args, **kwargs
-    ):
+    def __new__(cls, filename, *args, **kwargs):
         """
-        :param filename: the filename/path of the file to write to,
-                         may be a path-like object or None to
-                         instantiate a :class:`~can.Printer`
-        :raises ValueError: if the filename's suffix is of an unknown file type
-        """
-        if filename is None:
-            return Printer(*args, **kwargs)
+        :type filename: str or None or path-like
+        :param filename: the filename/path the file to write to,
+                         may be a path-like object if the target logger supports
+                         it, and may be None to instantiate a :class:`~can.Printer`
 
-        lookup = {
-            ".asc": ASCWriter,
-            ".blf": BLFWriter,
-            ".csv": CSVWriter,
-            ".db": SqliteWriter,
-            ".log": CanutilsLogWriter,
-            ".txt": Printer,
-        }
-        suffix = pathlib.PurePath(filename).suffix
-        try:
-            return lookup[suffix](filename, *args, **kwargs)
-        except KeyError:
-            raise ValueError(
-                f'No write support for this unknown log format "{suffix}"'
-            ) from None
+        """
+        if filename:
+            if filename.endswith(".asc"):
+                return ASCWriter(filename, *args, **kwargs)
+            elif filename.endswith(".blf"):
+                return BLFWriter(filename, *args, **kwargs)
+            elif filename.endswith(".csv"):
+                return CSVWriter(filename, *args, **kwargs)
+            elif filename.endswith(".db"):
+                return SqliteWriter(filename, *args, **kwargs)
+            elif filename.endswith(".log"):
+                return CanutilsLogWriter(filename, *args, **kwargs)
+
+        # else:
+        log.info('unknown file type "%s", falling pack to can.Printer', filename)
+        return Printer(filename, *args, **kwargs)

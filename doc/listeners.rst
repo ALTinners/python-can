@@ -41,13 +41,6 @@ BufferedReader
     :members:
 
 
-RedirectReader
---------------
-
-.. autoclass:: can.RedirectReader
-    :members:
-
-
 Logger
 ------
 

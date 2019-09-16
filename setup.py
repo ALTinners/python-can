@@ -16,30 +16,31 @@ from setuptools import setup, find_packages
 
 logging.basicConfig(level=logging.WARNING)
 
-with open("can/__init__.py", "r") as fd:
-    version = re.search(
-        r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', fd.read(), re.MULTILINE
-    ).group(1)
+with open('can/__init__.py', 'r') as fd:
+    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
+                        fd.read(), re.MULTILINE).group(1)
 
-with open("README.rst", "r") as f:
+with open('README.rst', 'r') as f:
     long_description = f.read()
 
 # Dependencies
 extras_require = {
-    "seeedstudio": ["pyserial>=3.0"],
-    "serial": ["pyserial~=3.0"],
-    "neovi": ["python-ics>=2.12", "filelock"],
+    'serial':   ['pyserial~=3.0'],
+    'neovi':    ['python-ics>=2.12']
 }
 
 tests_require = [
-    "pytest~=4.3",
-    "pytest-timeout~=1.3",
-    "pytest-cov~=2.6",
-    "codecov~=2.0",
-    "hypothesis",
-] + extras_require["serial"]
+    'mock~=2.0',
+    'pytest~=4.3',
+    'pytest-timeout~=1.3',
+    'pytest-cov~=2.6',
+    'codecov~=2.0',
+    'future',
+    'six',
+    'hypothesis'
+] + extras_require['serial']
 
-extras_require["test"] = tests_require
+extras_require['test'] = tests_require
 
 # Check for 'pytest-runner' only if setup.py was invoked with 'test'.
 # This optimizes setup.py for cases when pytest-runner is not needed,
@@ -48,6 +49,7 @@ extras_require["test"] = tests_require
 # See https://pypi.org/project/pytest-runner/#conditional-requirement
 needs_pytest = {"pytest", "test", "ptr"}.intersection(sys.argv)
 pytest_runner = ["pytest-runner"] if needs_pytest else []
+
 
 setup(
     # Description
@@ -58,6 +60,8 @@ setup(
     classifiers=[
         # a list of all available ones: https://pypi.org/classifiers/
         "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: Implementation :: CPython",
@@ -78,35 +82,38 @@ setup(
         "Topic :: System :: Monitoring",
         "Topic :: System :: Networking",
         "Topic :: System :: Hardware :: Hardware Drivers",
-        "Topic :: Utilities",
+        "Topic :: Utilities"
     ],
+
     # Code
     version=version,
     packages=find_packages(exclude=["test", "doc", "scripts", "examples"]),
     scripts=list(filter(isfile, (join("scripts/", f) for f in listdir("scripts/")))),
+
     # Author
     author="Brian Thorne",
     author_email="brian@thorne.link",
+
     # License
     license="LGPL v3",
+
     # Package data
     package_data={
         "": ["README.rst", "CONTRIBUTORS.txt", "LICENSE.txt", "CHANGELOG.txt"],
         "doc": ["*.*"],
-        "examples": ["*.py"],
+        "examples": ["*.py"]
     },
+
     # Installation
     # see https://www.python.org/dev/peps/pep-0345/#version-specifiers
-    python_requires=">=3.6",
+    python_requires=">=2.7",
     install_requires=[
-        "wrapt~=1.10",
-        "aenum",
+        'wrapt~=1.10',
+        'aenum',
+        'typing;python_version<"3.5"',
         'windows-curses;platform_system=="Windows"',
-        "filelock",
-        "mypy_extensions >= 0.4.0, < 0.5.0",
-        'pywin32;platform_system=="Windows"',
     ],
     setup_requires=pytest_runner,
     extras_require=extras_require,
-    tests_require=tests_require,
+    tests_require=tests_require
 )

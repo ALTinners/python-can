@@ -8,12 +8,15 @@ cache:
   - "$HOME/.cache/pip"
 
 python:
-  # CPython; only 3.6 is supported
+  # CPython; versions pre-2.7 and 3.0-3.5 have reached EOL
+  - "2.7"
   - "3.6"
   - "3.7"
   - 3.8-dev
   - nightly
   # PyPy:
+  - pypy # Python 2.7
+  - pypy3.5 # Python 3.5
   - pypy3
 
 env:
@@ -63,6 +66,14 @@ jobs:
       os: osx
       osx_image: xcode8.3
       python: 3.6-dev
+    - stage: test
+      os: osx
+      osx_image: xcode8.3
+      python: 3.7-dev
+    - stage: test
+      os: osx
+      osx_image: xcode8.3
+      python: nightly
 
     - stage: documentation
       name: "Sphinx Build"
@@ -74,44 +85,11 @@ jobs:
         #   -a Write all files
         #   -n nitpicky
         - python -m sphinx -an doc build
-    - stage: linter
-      name: "Linter Checks"
-      python: "3.7"
-      before_install:
-        - travis_retry pip install -r requirements-lint.txt
-      script:
-        # Slowly enable all pylint warnings by adding addressed classes of
-        # warnings to the .pylintrc-wip file to prevent them from being
-        # re-introduced
-        - pylint --rcfile=.pylintrc-wip can/
-        # mypy checking
-        - mypy
-          --python-version=3.7
-          --ignore-missing-imports
-          --no-implicit-optional
-          can/bit_timing.py
-          can/broadcastmanager.py
-          can/bus.py
-          can/interface.py
-          can/listener.py
-          can/logger.py
-          can/message.py
-          can/notifier.py
-          can/player.py
-          can/thread_safe_bus.py
-          can/typechecking.py
-          can/util.py
-          can/io/**.py
-    - stage: linter
-      name: "Formatting Checks"
-      python: "3.7"
-      before_install:
-        - travis_retry pip install -r requirements-lint.txt
-      script:
-        - black --check --verbose .
     - stage: deploy
       name: "PyPi Deployment"
       python: "3.7"
+      before_install:
+        - travis_retry pip install -U wheel setuptools
       deploy:
         provider: pypi
         user: hardbyte
