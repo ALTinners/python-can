@@ -4,13 +4,14 @@
 This module contains common `ctypes` utils.
 """
 
+import binascii
 import ctypes
 import logging
 import sys
 
-log = logging.getLogger("can.ctypesutil")
+log = logging.getLogger('can.ctypesutil')
 
-__all__ = ["CLibrary", "HANDLE", "PHANDLE", "HRESULT"]
+__all__ = ['CLibrary', 'HANDLE', 'PHANDLE', 'HRESULT']
 
 try:
     _LibBase = ctypes.WinDLL
@@ -33,25 +34,19 @@ class LibraryMixin:
         :param callable errcheck:
             optional error checking function, see ctypes docs for _FuncPtr
         """
-        if argtypes:
+        if (argtypes):
             prototype = self.function_type(restype, *argtypes)
         else:
             prototype = self.function_type(restype)
         try:
             symbol = prototype((func_name, self))
         except AttributeError:
-            raise ImportError(
-                "Could not map function '{}' from library {}".format(
-                    func_name, self._name
-                )
-            )
+            raise ImportError("Could not map function '{}' from library {}".format(func_name, self._name))
 
         setattr(symbol, "_name", func_name)
-        log.debug(
-            f'Wrapped function "{func_name}", result type: {type(restype)}, error_check {errcheck}'
-        )
+        log.debug('Wrapped function "{}", result type: {}, error_check {}'.format(func_name, type(restype), errcheck))
 
-        if errcheck:
+        if (errcheck):
             symbol.errcheck = errcheck
 
         setattr(self, func_name, symbol)
@@ -62,10 +57,10 @@ class CLibrary_Win32(_LibBase, LibraryMixin):
     " Basic ctypes.WinDLL derived class + LibraryMixin "
 
     def __init__(self, library_or_path):
-        if isinstance(library_or_path, str):
-            super().__init__(library_or_path)
+        if (isinstance(library_or_path, str)):
+            super(CLibrary_Win32, self).__init__(library_or_path)
         else:
-            super().__init__(library_or_path._name, library_or_path._handle)
+            super(CLibrary_Win32, self).__init__(library_or_path._name, library_or_path._handle)
 
     @property
     def function_type(self):
@@ -76,10 +71,10 @@ class CLibrary_Unix(ctypes.CDLL, LibraryMixin):
     " Basic ctypes.CDLL derived class + LibraryMixin "
 
     def __init__(self, library_or_path):
-        if isinstance(library_or_path, str):
-            super().__init__(library_or_path)
+        if (isinstance(library_or_path, str)):
+            super(CLibrary_Unix, self).__init__(library_or_path)
         else:
-            super().__init__(library_or_path._name, library_or_path._handle)
+            super(CLibrary_Unix, self).__init__(library_or_path._name, library_or_path._handle)
 
     @property
     def function_type(self):
@@ -100,6 +95,5 @@ else:
 # Common win32 definitions
 class HANDLE(ctypes.c_void_p):
     pass
-
 
 PHANDLE = ctypes.POINTER(HANDLE)
