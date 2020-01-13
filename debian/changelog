@@ -1,8 +1,13 @@
-python-can (3.3.2.final~github-2) UNRELEASED; urgency=medium
+python-can (3.3.2.final~github-2) unstable; urgency=medium
 
+  [ Ondřej Nový ]
   * Bump Standards-Version to 4.4.1.
 
- -- Ondřej Nový <onovy@debian.org>  Fri, 18 Oct 2019 15:57:51 +0200
+  [ IOhannes m zmölnig ]
+  * Fixed d/watch
+  * Don't install a python-package "test" that only contains python-can tests
+
+ -- IOhannes m zmölnig (Debian/GNU) <umlaeute@debian.org>  Mon, 13 Jan 2020 11:22:58 +0100
 
 python-can (3.3.2.final~github-1) unstable; urgency=medium
 
