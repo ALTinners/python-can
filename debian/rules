@@ -23,6 +23,7 @@ override_dh_auto_install:
 	dh_auto_install
 	-for f in debian/*/usr/bin/*.py; do mv $$f $${f%.py}; done
 	-rm -f debian/*/usr/lib/python*/dist-packages/test.???
+	-rm -rf debian/*/usr/lib/python*/dist-packages/test/
 
 licensecheck:
 	licensecheck --deb-machine -r * \
