@@ -1,12 +1,21 @@
-Description: Use 'enum' library rather than 'aenum'
- On Debian we only ship python3-can with python>3.7...
-Author: IOhannes m zmölnig
+From: =?utf-8?q?=22IOhannes_m_zm=C3=B6lnig_=28Debian/GNU=29=22?=
+ <umlaeute@debian.org>
+Date: Fri, 27 Mar 2020 20:57:21 +0100
+Subject: Use 'enum' library rather than 'aenum'
+
+Last-Update: 2019-09-10
+
+On Debian we only ship python3-can with python>3.7...
 Last-Update: 2019-09-10
 ---
-This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
---- python-can.orig/can/bus.py
-+++ python-can/can/bus.py
-@@ -11,7 +11,10 @@
+ can/bus.py | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/can/bus.py b/can/bus.py
+index 2b36b3c..5af9465 100644
+--- a/can/bus.py
++++ b/can/bus.py
+@@ -11,7 +11,10 @@ import logging
  import threading
  from time import time
  from collections import namedtuple

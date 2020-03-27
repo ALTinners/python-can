@@ -1,14 +1,27 @@
-Description: use 'python3' instead of 'python' when calling scripts
- also in the documentation
-Author: IOhannes m zmölnig
+From: =?utf-8?q?=22IOhannes_m_zm=C3=B6lnig_=28Debian/GNU=29=22?=
+ <umlaeute@debian.org>
+Date: Fri, 27 Mar 2020 20:57:21 +0100
+Subject: use 'python3' instead of 'python' when calling scripts
+
 Origin: Debian
 Forwarded: not-needed
 Last-Update: 2019-09-10
+
+also in the documentation
+Last-Update: 2019-09-10
 ---
-This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
---- python-can.orig/can/logger.py
-+++ python-can/can/logger.py
-@@ -29,7 +29,7 @@
+ can/logger.py        |  2 +-
+ can/player.py        |  2 +-
+ can/viewer.py        | 12 ++++++------
+ doc/scripts.rst      |  8 ++++----
+ test/test_scripts.py |  4 ++--
+ 5 files changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/can/logger.py b/can/logger.py
+index 204eb8d..3ac9ef9 100644
+--- a/can/logger.py
++++ b/can/logger.py
+@@ -29,7 +29,7 @@ from can import Bus, BusState, Logger
  
  def main():
      parser = argparse.ArgumentParser(
@@ -17,9 +30,11 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
          description="Log CAN traffic, printing messages to stdout or to a given file.")
  
      parser.add_argument("-f", "--file_name", dest="log_file",
---- python-can.orig/can/player.py
-+++ python-can/can/player.py
-@@ -19,7 +19,7 @@
+diff --git a/can/player.py b/can/player.py
+index c712f17..61e5d03 100644
+--- a/can/player.py
++++ b/can/player.py
+@@ -19,7 +19,7 @@ from can import Bus, LogReader, MessageSync
  
  def main():
      parser = argparse.ArgumentParser(
@@ -28,9 +43,11 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
          description="Replay CAN traffic.")
  
      parser.add_argument("-f", "--file_name", dest="log_file",
---- python-can.orig/can/viewer.py
-+++ python-can/can/viewer.py
-@@ -326,7 +326,7 @@
+diff --git a/can/viewer.py b/can/viewer.py
+index 316d3e3..16de2a6 100644
+--- a/can/viewer.py
++++ b/can/viewer.py
+@@ -326,7 +326,7 @@ def parse_args(args):
          kwargs = {'allow_abbrev': False}
  
      # Parse command line arguments
@@ -39,7 +56,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
                                       description='A simple CAN viewer terminal application written in Python',
                                       epilog='R|Shortcuts: '
                                              '\n        +---------+-------------------------+'
-@@ -370,7 +370,7 @@
+@@ -370,7 +370,7 @@ def parse_args(args):
                                 '\n      q = int64_t, Q = uint64_t'
                                 '\n      f = float (32-bits), d = double (64-bits)'
                                 '\nFx to convert six bytes with ID 0x100 into uint8_t, uint16 and uint32_t:'
@@ -48,7 +65,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
                                 '\nNote that the IDs are always interpreted as hex values.'
                                 '\nAn optional conversion from integers to real units can be given'
                                 '\nas additional arguments. In order to convert from raw integer'
-@@ -379,16 +379,16 @@
+@@ -379,16 +379,16 @@ def parse_args(args):
                                 '\nto convert from real units to raw integer values.'
                                 '\nFx lets say the uint8_t needs no conversion, but the uint16 and the uint32_t'
                                 '\nneeds to be divided by 10 and 100 respectively:'
@@ -68,7 +85,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
                            metavar='{<id>:<format>,<id>:<format>:<scaling1>:...:<scalingN>,file.txt}',
                            nargs=argparse.ONE_OR_MORE, default='')
  
-@@ -396,7 +396,7 @@
+@@ -396,7 +396,7 @@ def parse_args(args):
                            '\n      <can_id>:<can_mask> (matches when <received_can_id> & mask == can_id & mask)'
                            '\n      <can_id>~<can_mask> (matches when <received_can_id> & mask != can_id & mask)'
                            '\nFx to show only frames with ID 0x100 to 0x103 and 0x200 to 0x20F:'
@@ -77,29 +94,11 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
                            '\nNote that the ID and mask are alway interpreted as hex values',
                            metavar='{<can_id>:<can_mask>,<can_id>~<can_mask>}', nargs=argparse.ONE_OR_MORE, default='')
  
---- python-can.orig/test/test_scripts.py
-+++ python-can/test/test_scripts.py
-@@ -72,7 +72,7 @@
- 
-     def _commands(self):
-         commands = [
--            "python -m can.logger --help",
-+            "python3 -m can.logger --help",
-         ]
-         return commands
- 
-@@ -85,7 +85,7 @@
- 
-     def _commands(self):
-         commands = [
--            "python -m can.player --help",
-+            "python3 -m can.player --help",
-         ]
-         return commands
- 
---- python-can.orig/doc/scripts.rst
-+++ python-can/doc/scripts.rst
-@@ -3,7 +3,7 @@
+diff --git a/doc/scripts.rst b/doc/scripts.rst
+index a63f1b1..d61efc2 100644
+--- a/doc/scripts.rst
++++ b/doc/scripts.rst
+@@ -3,7 +3,7 @@ Scripts
  
  The following modules are callable from python-can.
  
@@ -108,7 +107,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  
  can.logger
  ----------
-@@ -11,13 +11,13 @@
+@@ -11,13 +11,13 @@ can.logger
  Command line help, called with ``--help``:
  
  
@@ -124,10 +123,32 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  
  
  can.viewer
-@@ -37,5 +37,5 @@
+@@ -37,5 +37,5 @@ By default the ``can.viewer`` uses the :doc:`/interfaces/socketcan` interface. A
  
  The full usage page can be seen below:
  
 -.. command-output:: python -m can.viewer -h
 +.. command-output:: python3 -m can.viewer -h
+ 
+diff --git a/test/test_scripts.py b/test/test_scripts.py
+index 260a69f..c4a4f5a 100644
+--- a/test/test_scripts.py
++++ b/test/test_scripts.py
+@@ -72,7 +72,7 @@ class TestLoggerScript(CanScriptTest):
+ 
+     def _commands(self):
+         commands = [
+-            "python -m can.logger --help",
++            "python3 -m can.logger --help",
+         ]
+         return commands
+ 
+@@ -85,7 +85,7 @@ class TestPlayerScript(CanScriptTest):
+ 
+     def _commands(self):
+         commands = [
+-            "python -m can.player --help",
++            "python3 -m can.player --help",
+         ]
+         return commands
  

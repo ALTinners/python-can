@@ -7,9 +7,11 @@ Subject: removed broken pytest config from setup.cfg
  setup.cfg | 3 ---
  1 file changed, 3 deletions(-)
 
---- python-can.orig/setup.cfg
-+++ python-can/setup.cfg
-@@ -7,9 +7,6 @@
+diff --git a/setup.cfg b/setup.cfg
+index 49177e6..00caef6 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -7,9 +7,6 @@ test=pytest
  [metadata]
  license_file = LICENSE.txt
  

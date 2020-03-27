@@ -1,12 +1,21 @@
-Description: temporarily disable script tests
-Author: IOhannes m zmölnig
+From: =?utf-8?q?=22IOhannes_m_zm=C3=B6lnig_=28Debian/GNU=29=22?=
+ <umlaeute@debian.org>
+Date: Fri, 27 Mar 2020 20:57:21 +0100
+Subject: temporarily disable script tests
+
 Forwarded: not-needed
 Last-Update: 2019-02-11
+
+Last-Update: 2019-02-11
 ---
-This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
---- python-can.orig/test/test_scripts.py
-+++ python-can/test/test_scripts.py
-@@ -73,10 +73,7 @@
+ test/test_scripts.py | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/test/test_scripts.py b/test/test_scripts.py
+index 74ae714..260a69f 100644
+--- a/test/test_scripts.py
++++ b/test/test_scripts.py
+@@ -73,10 +73,7 @@ class TestLoggerScript(CanScriptTest):
      def _commands(self):
          commands = [
              "python -m can.logger --help",
@@ -17,7 +26,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
          return commands
  
      def _import(self):
-@@ -89,10 +86,7 @@
+@@ -89,10 +86,7 @@ class TestPlayerScript(CanScriptTest):
      def _commands(self):
          commands = [
              "python -m can.player --help",
